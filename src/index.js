@@ -50,6 +50,7 @@ export default {
     Vue.mixin({
       data () {
         return {
+          idle,
           [onIdleStr]: null,
           [onActiveStr]: null
         }
@@ -80,8 +81,8 @@ export default {
       methods: {
         changeIdleTime (idleTime) {
           // ms
-          idle.set({ idle: idleTime })
-          idle.stop().reset().start()
+          this.idle.set({ idle: idleTime })
+          this.idle.stop().reset().start()
         }
       }
     })
